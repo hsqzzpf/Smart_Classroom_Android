@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_blue"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/home_checked_student_view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:elevation="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="4dp"
+        app:cardBackgroundColor="@color/background_blue">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/checked_student_photo"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/liyanzhang"
+                app:riv_border_color="@color/medium_blue"
+                app:riv_border_width="8dp"
+                app:riv_oval="true" />
+
+            <TextView
+                android:id="@+id/checked_student_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/checked_student_photo"
+                android:gravity="center"
+                android:text="Li Yanzhang"
+                android:textColor="@color/medium_blue"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

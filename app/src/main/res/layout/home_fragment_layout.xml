@@ -1,26 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@color/background_blue"
+    android:orientation="vertical"
+    android:paddingHorizontal="12dp"
+    android:paddingTop="24dp">
+
     <TextView
-        android:id="@+id/title_from"
-        android:layout_width="wrap_content"
+        android:id="@+id/title_classname"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="#FF0000"
+        android:gravity="center"
+        android:text="Class Name"
+        android:textColor="@color/light_grey" />
+
+    <TextView
+        android:id="@+id/home_ClassName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_classname"
+        android:gravity="center"
+        android:text="50.001 Introduction to Information System and Programmming - CI01"
+        android:textColor="@color/medium_blue"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/title_venue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_ClassName"
+        android:gravity="center"
+        android:text="Venue"
+        android:textColor="@color/light_grey" />
+
+    <TextView
+        android:id="@+id/home_ClassVenue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_venue"
+        android:gravity="center"
+        android:text="2.506, SUTD"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/title_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_ClassVenue"
+        android:gravity="center"
+        android:text="Time"
+        android:textColor="@color/light_grey" />
+
+    <TextView
+        android:id="@+id/home_Time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_time"
+        android:gravity="center"
+        android:text="9:30-11:00, 25th Oct, Thur."
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/title_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_Time"
+        android:textColor="@color/light_grey"
+        android:gravity="center"
+        android:text="Status" />
+
+    <TextView
+        android:id="@+id/home_Status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_status"
+        android:gravity="center"
+        android:text="Signing In"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/home_CountDown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_Status"
+        android:gravity="center"
+        android:text="00:15:22"
+        android:textColor="@color/orange"
+        android:textSize="24sp" />
+
+    <View
+        android:id="@+id/home_Line1"
+        android:layout_width="180dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/home_CountDown"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        />
-    <TextView
-        android:id="@+id/fragment_content"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/light_grey"
+        android:gravity="center" />
+
+    <RelativeLayout
+        android:id="@+id/group_checked_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HomeFragment"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:layout_centerInParent="true"
-        />
+        android:layout_below="@id/home_Line1"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/title_checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/home_Line1"
+            android:text="CHECKED:"
+            android:textColor="@color/medium_blue"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/home_checked_number"
+            android:text="18"
+            android:textSize="16sp"
+            android:textColor="@color/medium_blue"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/title_checked"
+            android:layout_below="@id/home_Line1"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/group_checked_title"
+        android:id="@+id/home_checked_student"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
 </RelativeLayout>

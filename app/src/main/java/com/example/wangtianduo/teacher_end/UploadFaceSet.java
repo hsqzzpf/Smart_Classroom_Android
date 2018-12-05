@@ -26,6 +26,23 @@ public class UploadFaceSet {
 
     final static String apiKey = "T7080cfMH824XsoWzR0v4QPc288iTWBu";
     final static String apiSecret = "iWLN8jiciOCMWidOKfzIufBW11I4fjl0";
+    
+     public static String getCheckedStudent() throws Exception{
+            HashMap<String, String> classInfo = new HashMap<>();
+            classInfo.put("classNo","class6");
+            String str = "";
+            try{
+                Log.i("ASDF","aaaa");
+                byte[] returnByte = addFace("http://13.250.98.176/get",classInfo);
+                Log.i("ASDF",new String(returnByte));
+                str = new String(returnByte);
+            }catch (Exception e){
+                Log.i("ASDF","ERROR");
+                e.printStackTrace();
+            }
+            return str;
+        }
+
 
     public static String upload(byte[] buff, String user_id) throws Exception{
 
@@ -33,10 +50,12 @@ public class UploadFaceSet {
         String detect_url = "https://api-us.faceplusplus.com/facepp/v3/detect";
         String addface_url = "https://api-us.faceplusplus.com/facepp/v3/faceset/addface";
         String setid_url = "https://api-us.faceplusplus.com/facepp/v3/face/setuserid";
+        String server = "http://13.250.98.176/add";
 
         HashMap<String, String> detect_map = new HashMap<>();
         HashMap<String, String> add_map = new HashMap<>();
         HashMap<String, String> setid_map = new HashMap<>();
+        HashMap<String, String> server_up = new HashMap<>();
         HashMap<String, byte[]> byteMap = new HashMap<>();
 
         detect_map.put("api_key", apiKey);
@@ -45,6 +64,8 @@ public class UploadFaceSet {
         detect_map.put("api_secret", apiSecret);
         add_map.put("api_secret", apiSecret);
         setid_map.put("api_secret", apiSecret);
+
+        server_up.put("name", user_id);
 
         add_map.put("outer_id", "workingSet");
         detect_map.put("return_landmark", "0");
@@ -70,7 +91,8 @@ public class UploadFaceSet {
                 byte[] setid_return = setid(setid_url, setid_map);
                 String setid_string = new String(setid_return);
                 Log.i("ASDF", "setid " + setid_string);
-
+                byte[] ss = addFace(server, server_up);
+                Log.i("ASDF", new String(ss));
             }
 
         }catch (Exception e) {
