@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/add_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add_face"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:id="@+id/returnValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_new"/>
+
+    <Button
+        android:id="@+id/adjust_curriculum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="adjust_course"
+        android:layout_below="@+id/returnValue"
+        />
+
+</RelativeLayout>

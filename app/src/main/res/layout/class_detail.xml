@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_blue">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="12dp">
+
+        <TextView
+            android:id="@+id/title_classname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Class Name"
+            android:textColor="@color/light_grey"/>
+
+        <TextView
+            android:id="@+id/sub_ClassName"
+            android:text="50.001 Introduction to Information System and Programmming - CI01"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/medium_blue"
+            android:layout_below="@+id/title_classname"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/title_venue"
+            android:text="Venue"
+            android:textColor="@color/light_grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sub_ClassName"/>
+
+        <TextView
+            android:id="@+id/sub_ClassVenue"
+            android:text="2.506, SUTD"
+            android:textSize="16sp"
+            android:layout_below="@+id/title_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/title_time"
+            android:text="Time"
+            android:textColor="@color/light_grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sub_ClassVenue" />
+
+        <TextView
+            android:id="@+id/sub_Time"
+            android:text="9:30-11:00, 25th Oct, Thur."
+            android:textSize="16sp"
+            android:layout_below="@+id/title_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/title_status"
+            android:text="Status"
+            android:layout_below="@id/sub_Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/sub_Status"
+            android:text="Signing In"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_status"/>
+
+        <TextView
+            android:id="@+id/sub_Attendance"
+            android:text="18/50"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/orange"
+            android:layout_toRightOf="@id/sub_Status"
+            android:layout_below="@id/title_status"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/sub_CountDown"
+            android:textSize="16sp"
+            android:textColor="@color/orange"
+            android:layout_below="@id/sub_Status"
+            android:text="00:15:22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:id="@+id/sub_Line1"
+            android:layout_width="180dp"
+            android:layout_marginTop="4dp"
+            android:layout_height="1dp"
+            android:background="@color/light_grey"
+            android:layout_below="@id/sub_CountDown"/>
+
+        <TextView
+            android:id="@+id/title_checked"
+            android:text="CHECKED"
+            android:textColor="@color/medium_blue"
+            android:layout_below="@+id/sub_Line1"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
