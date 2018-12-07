@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.wangtianduo.teacher_end.HomeClassAdapter;
 import com.example.wangtianduo.teacher_end.R;
-import com.example.wangtianduo.teacher_end.UploadFaceSet;
+import com.example.wangtianduo.teacher_end.face_detect.UploadFaceSet;
 
 import org.json.JSONObject;
 

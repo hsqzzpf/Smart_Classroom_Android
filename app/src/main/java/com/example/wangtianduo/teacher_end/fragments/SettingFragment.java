@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.wangtianduo.teacher_end.activities.FaceDetectionActivity;
+import com.example.wangtianduo.teacher_end.face_detect.FaceDetectionActivity;
 import com.example.wangtianduo.teacher_end.R;
 import com.example.wangtianduo.teacher_end.calendar_module.CalendarBasicActivity;
 

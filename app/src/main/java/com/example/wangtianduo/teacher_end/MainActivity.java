@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end.activities;
+package com.example.wangtianduo.teacher_end;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end.activities;
+package com.example.wangtianduo.teacher_end;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

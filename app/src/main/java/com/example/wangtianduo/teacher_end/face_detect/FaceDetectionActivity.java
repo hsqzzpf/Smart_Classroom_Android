@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end.activities;
+package com.example.wangtianduo.teacher_end.face_detect;
 
 import android.Manifest;
 import android.content.Context;
@@ -35,8 +35,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.wangtianduo.teacher_end.MainActivity;
 import com.example.wangtianduo.teacher_end.R;
-import com.example.wangtianduo.teacher_end.UploadFaceSet;
 
 import java.io.File;
 import java.io.FileNotFoundException;

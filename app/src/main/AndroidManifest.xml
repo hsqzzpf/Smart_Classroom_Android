@@ -15,15 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.FaceDetectionActivity"></activity>
-        <activity android:name=".activities.TabCardviewActivity"></activity>
+        <activity android:name=".face_detect.FaceDetectionActivity"></activity>
+        <activity android:name=".TabCardviewActivity"></activity>
         <activity android:name=".calendar_module.CalendarBasicActivity"></activity>
 
     </application>

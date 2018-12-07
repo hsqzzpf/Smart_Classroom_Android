@@ -14,7 +14,7 @@ import com.alamkanak.weekview.DateTimeInterpreter;
 import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
-import com.example.wangtianduo.teacher_end.activities.MainActivity;
+import com.example.wangtianduo.teacher_end.MainActivity;
 import com.example.wangtianduo.teacher_end.R;
 
 import java.text.SimpleDateFormat;

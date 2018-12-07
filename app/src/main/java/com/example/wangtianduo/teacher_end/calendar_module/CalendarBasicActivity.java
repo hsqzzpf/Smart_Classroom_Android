@@ -14,6 +14,10 @@ public class CalendarBasicActivity extends CalendarBaseActivity {
         // Populate the week view with some events.
         List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
 
+        WeekViewEvent event = new EventBuilder.Builder().set_month(newMonth-1).set_day_of_month(9).set_start_hour(4).set_end_hour(6).set_id(1).set_name("w").build();
+        event.setColor(getResources().getColor(R.color.event_color_01));
+        events.add(event);
+
         Calendar startTime = Calendar.getInstance();
         startTime.set(Calendar.HOUR_OF_DAY, 3);
         startTime.set(Calendar.MINUTE, 0);
@@ -22,7 +26,7 @@ public class CalendarBasicActivity extends CalendarBaseActivity {
         Calendar endTime = (Calendar) startTime.clone();
         endTime.add(Calendar.HOUR, 2);
         endTime.set(Calendar.MONTH, newMonth - 1);
-        WeekViewEvent event = new WeekViewEvent(1, getResources().getText(R.string.java).toString(), startTime, endTime);
+        event = new WeekViewEvent(1, getResources().getText(R.string.java).toString(), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_01));
         events.add(event);
 

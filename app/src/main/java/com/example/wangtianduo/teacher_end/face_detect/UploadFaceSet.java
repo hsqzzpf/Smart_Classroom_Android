@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.face_detect;
 
 import android.content.Intent;
 import android.util.Log;
