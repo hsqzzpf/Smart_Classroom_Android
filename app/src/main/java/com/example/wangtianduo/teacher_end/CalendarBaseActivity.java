@@ -1,8 +1,11 @@
 package com.example.wangtianduo.teacher_end;
 
+import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,8 +59,15 @@ protected void onCreate(Bundle savedInstanceState) {
         setupDateTimeInterpreter(false);
         }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Intent intent = new Intent(CalendarBaseActivity.this, MainActivity.class);
+        Log.i("ASDF","Calendar, stop");
+        startActivity(intent);
+    }
 
-@Override
+    @Override
 public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;

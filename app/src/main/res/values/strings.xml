@@ -11,4 +11,7 @@
     <string name="title_activity_basic">Basic Example</string>
     <string name="title_activity_asynchronous">Asynchronous Events</string>
     <string name="async_error">Could not download events from the internet</string>
+    <string name="java">50.001 Introduction to Information System</string>
+    <string name="compstruc">50.002 Computational Structure</string>
+    <string name="algo">50.004 Introduction to Algorithm</string>
 </resources>
