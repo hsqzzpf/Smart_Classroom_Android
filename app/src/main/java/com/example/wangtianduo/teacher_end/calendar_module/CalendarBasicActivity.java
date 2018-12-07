@@ -1,6 +1,7 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.calendar_module;
 
 import com.alamkanak.weekview.WeekViewEvent;
+import com.example.wangtianduo.teacher_end.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;

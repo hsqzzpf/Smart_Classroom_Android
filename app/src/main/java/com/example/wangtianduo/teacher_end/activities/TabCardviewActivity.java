@@ -1,17 +1,17 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
-public class TabCardview extends AppCompatActivity {
+import com.example.wangtianduo.teacher_end.R;
+import com.example.wangtianduo.teacher_end.sqlite_module.ClassDbHelper;
 
-    ClassDbHelper ClassDbHelper;
+public class TabCardviewActivity extends AppCompatActivity {
+
+    com.example.wangtianduo.teacher_end.sqlite_module.ClassDbHelper ClassDbHelper;
     ClassDbHelper.ClassData classData;
 
     @Override

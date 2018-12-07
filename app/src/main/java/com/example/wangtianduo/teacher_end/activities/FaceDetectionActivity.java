@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -35,19 +35,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.wangtianduo.teacher_end.R;
+import com.example.wangtianduo.teacher_end.UploadFaceSet;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-public class FaceDetection extends AppCompatActivity {
+public class FaceDetectionActivity extends AppCompatActivity {
 
     private Button btnCapture;
     private TextureView textureView;
@@ -112,7 +113,7 @@ public class FaceDetection extends AppCompatActivity {
             public void onClick(View view){
                 String user_id = editText.getText().toString();
                 if (user_id.length() == 0) {
-                    Toast.makeText(FaceDetection.this, "Please type in your name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FaceDetectionActivity.this, "Please type in your name", Toast.LENGTH_SHORT).show();
                 }else {
                     Log.i("ASDF", "your name: " + user_id);
                     AsynUpload asy = new AsynUpload();
@@ -216,7 +217,7 @@ public class FaceDetection extends AppCompatActivity {
 //                        outputStream.write(bytes);
                         String s = UploadFaceSet.upload(bytes, user_id);
 //
-                        Intent intent = new Intent(FaceDetection.this, MainActivity.class);
+                        Intent intent = new Intent(FaceDetectionActivity.this, MainActivity.class);
                         startActivity(intent);
                     }catch (Exception e) {
                         Log.i("ASDF", e.toString());
@@ -233,7 +234,7 @@ public class FaceDetection extends AppCompatActivity {
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request,
                                                @NonNull TotalCaptureResult result){
                     super.onCaptureCompleted(session, request, result);
-                    Toast.makeText(FaceDetection.this, "Saved " + file, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FaceDetectionActivity.this, "Saved " + file, Toast.LENGTH_SHORT).show();
                     createCameraPreview();
                 }
             };

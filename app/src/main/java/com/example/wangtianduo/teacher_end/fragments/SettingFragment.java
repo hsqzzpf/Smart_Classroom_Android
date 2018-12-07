@@ -1,15 +1,18 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.wangtianduo.teacher_end.activities.FaceDetectionActivity;
+import com.example.wangtianduo.teacher_end.R;
+import com.example.wangtianduo.teacher_end.calendar_module.CalendarBasicActivity;
 
 /**
  * Created by zhouwei on 17/4/23.
@@ -18,7 +21,7 @@ import android.widget.TextView;
 public class SettingFragment extends Fragment {
 
     private String mFrom;
-    static SettingFragment newInstance(String from){
+    public static SettingFragment newInstance(String from){
         SettingFragment fragment = new SettingFragment();
         Bundle bundle = new Bundle();
         bundle.putString("from",from);
@@ -48,7 +51,7 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getContext(), FaceDetection.class);
+                Intent intent = new Intent(getContext(), FaceDetectionActivity.class);
                 startActivity(intent);
 
             }

@@ -1,20 +1,11 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.alamkanak.weekview.MonthLoader;
-import com.alamkanak.weekview.WeekView;
-import com.alamkanak.weekview.WeekViewEvent;
-
-import java.util.List;
+import com.example.wangtianduo.teacher_end.calendar_module.CalendarBasicActivity;
 
 /**
  * Created by zhouwei on 17/4/23.
@@ -24,7 +15,7 @@ public class ScheduleFragment extends Fragment {
 
     private String mFrom;
 
-    static ScheduleFragment newInstance(String from){
+    public static ScheduleFragment newInstance(String from){
         ScheduleFragment fragment = new ScheduleFragment();
         Bundle bundle = new Bundle();
         bundle.putString("from",from);

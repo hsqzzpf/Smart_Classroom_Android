@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.sqlite_module;
 
 import android.provider.BaseColumns;
 

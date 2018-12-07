@@ -1,9 +1,8 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.calendar_module;
 
 import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
@@ -15,6 +14,8 @@ import com.alamkanak.weekview.DateTimeInterpreter;
 import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
+import com.example.wangtianduo.teacher_end.activities.MainActivity;
+import com.example.wangtianduo.teacher_end.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

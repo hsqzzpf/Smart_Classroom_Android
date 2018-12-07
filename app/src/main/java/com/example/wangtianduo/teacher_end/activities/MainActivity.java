@@ -1,13 +1,13 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.Toast;
+
+import com.example.wangtianduo.teacher_end.fragments.DataGenerator;
+import com.example.wangtianduo.teacher_end.R;
 
 
 public class MainActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.example.wangtianduo.teacher_end.R;
+import com.example.wangtianduo.teacher_end.activities.TabCardviewActivity;
+import com.example.wangtianduo.teacher_end.sqlite_module.ClassAdapter;
+import com.example.wangtianduo.teacher_end.sqlite_module.ClassDbHelper;
 
 /**
  * Created by zhouwei on 17/4/23.
@@ -23,7 +27,7 @@ public class ClassFragment extends Fragment {
     ClassDbHelper classDbHelper;
     ClassAdapter classAdapter;
 
-    static ClassFragment newInstance(String from){
+    public static ClassFragment newInstance(String from){
         ClassFragment fragment = new ClassFragment();
         Bundle bundle = new Bundle();
         bundle.putString("from",from);
@@ -55,7 +59,7 @@ public class ClassFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 Log.i("ASDF", "onitemclick");
-                Intent intent = new Intent(getContext(), TabCardview.class);
+                Intent intent = new Intent(getContext(), TabCardviewActivity.class);
                 intent.putExtra("position", String.valueOf(position));
                 Log.i("ASDF", "intent put extra");
                 startActivity(intent);

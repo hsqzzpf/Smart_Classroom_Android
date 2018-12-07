@@ -1,11 +1,12 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.fragments;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.example.wangtianduo.teacher_end.R;
+import com.example.wangtianduo.teacher_end.fragments.ClassFragment;
+import com.example.wangtianduo.teacher_end.fragments.HomeFragment;
+import com.example.wangtianduo.teacher_end.fragments.ScheduleFragment;
+import com.example.wangtianduo.teacher_end.fragments.SettingFragment;
 
 public class DataGenerator {
 
