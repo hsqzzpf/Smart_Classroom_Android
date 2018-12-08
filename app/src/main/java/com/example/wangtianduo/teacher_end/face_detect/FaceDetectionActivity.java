@@ -229,13 +229,12 @@ public class FaceDetectionActivity extends AppCompatActivity {
                     try{
 //                        outputStream = new FileOutputStream(file);
 //                        outputStream.write(bytes);
-//                        String s = UploadFaceSet.upload(bytes, user_id);
-//
-//                        Intent intent = new Intent(FaceDetectionActivity.this, MainActivity.class);
-//                        startActivity(intent);
-                        Bitmap img = BitmapFactory.decodeByteArray(bytes,0, bytes.length);
-                        AsynUpload asy = new AsynUpload();
-                        asy.execute(img);
+                        String s = UploadFaceSet.upload(bytes, user_id);
+                        //Toast.makeText(FaceDetectionActivity.this, "Success!", Toast.LENGTH_SHORT);
+////
+//                        Bitmap img = BitmapFactory.decodeByteArray(bytes,0, bytes.length);
+//                        AsynUpload asy = new AsynUpload();
+//                        asy.execute(img);
                     }catch (Exception e) {
                         Log.i("ASDF", e.toString());
                     }
@@ -251,8 +250,10 @@ public class FaceDetectionActivity extends AppCompatActivity {
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request,
                                                @NonNull TotalCaptureResult result){
                     super.onCaptureCompleted(session, request, result);
-                    Toast.makeText(FaceDetectionActivity.this, "Saved " + file, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(FaceDetectionActivity.this, "Saved " + file, Toast.LENGTH_SHORT).show();
                     createCameraPreview();
+                    Intent intent = new Intent(FaceDetectionActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
             };
 
