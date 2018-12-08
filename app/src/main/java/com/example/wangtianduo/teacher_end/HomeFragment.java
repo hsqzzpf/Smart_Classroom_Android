@@ -4,36 +4,41 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class HomeFragment extends Fragment {
     private String mFrom;
-    public RecyclerView mHomeCheckedStudent;
+    private RecyclerView mHomeCheckedStudent;
     private ArrayList<String> checkedStudentList = new ArrayList<>();
     private HomeClassAdapter mHomeClassAdapter;
-    private HashMap<String,String> classinfo = new HashMap<>();
+    private HashMap<String, String> classinfo = new HashMap<>();
     private byte[] returnByte;
     private String strJSON;
+    private ArrayList<String> testList = new ArrayList<>();
+    private GridLayoutManager mGridLayoutManager;
 
-    static HomeFragment newInstance(String from){
+
+    static HomeFragment newInstance(String from) {
         HomeFragment fragment = new HomeFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("from",from);
+        bundle.putString("from", from);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -41,10 +46,10 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(getArguments()!=null){
+        if (getArguments() != null) {
             mFrom = getArguments().getString("from");
-
         }
+
     }
 
     @Override
@@ -60,28 +65,31 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_fragment_layout,null);
-        try{
-            Log.i("ASDF","in home, before upload class");
+        View view = inflater.inflate(R.layout.home_fragment_layout, null);
+
+        try {
+            Log.i("ASDF", "in home, before upload class");
             AsynUpload asyn = new AsynUpload();
             asyn.execute();
             //String a = UploadFaceSet.upload(null,"111");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         checkedStudentList = processJSON(strJSON);
 
+        testArrayList();
+
         TextView homeClassName = view.findViewById(R.id.home_ClassName);
         TextView homeClassVenue = view.findViewById(R.id.home_ClassVenue);
         TextView homeClassTime = view.findViewById(R.id.home_Time);
-        TextView homeClassCountDown = view.findViewById(R.id.home_CountDown);
         TextView homeCheckedNumber = view.findViewById(R.id.home_checked_number);
 
-        mHomeCheckedStudent = (RecyclerView)view.findViewById(R.id.home_checked_student);
+        mGridLayoutManager = new GridLayoutManager(getContext(), 4);
+        mHomeCheckedStudent = (RecyclerView) view.findViewById(R.id.home_checked_student);
         mHomeClassAdapter = new HomeClassAdapter(getContext(), checkedStudentList);
+        mHomeCheckedStudent.setLayoutManager(mGridLayoutManager);
         mHomeCheckedStudent.setAdapter(mHomeClassAdapter);
-        mHomeCheckedStudent.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        //mHomeCheckedStudent.setLayoutManager(new LinearLayoutManager(getContext()));
         //homeCheckedNumber.setText(checkedStudentList.size());
 
         return view;
@@ -93,10 +101,10 @@ public class HomeFragment extends Fragment {
         protected String doInBackground(String... user_id) {
             String str = "";
 
-            try{
-                 str = UploadFaceSet.getCheckedStudent();
-                 strJSON = str;
-            }catch (Exception e){
+            try {
+                str = UploadFaceSet.getCheckedStudent();
+                strJSON = str;
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return str;
@@ -113,27 +121,41 @@ public class HomeFragment extends Fragment {
             super.onPostExecute(s);
 //            Intent intent = new Intent(FaceDetection.this, MainActivity.class);
 //            startActivity(intent);
-            Log.i("ASDF","onPostExecute: "+s);
+            Log.i("ASDF", "onPostExecute: " + s);
         }
     }
 
-    public ArrayList<String> processJSON(String jsonStr){
+    public ArrayList<String> processJSON(String jsonStr) {
         ArrayList<String> nameList = new ArrayList<>();
-        try{
+        try {
             JSONObject json = new JSONObject(jsonStr);
             Iterator iterator = json.keys();
-            while(iterator.hasNext()){
+            while (iterator.hasNext()) {
                 String key = (String) iterator.next();
-                if(json.getString(key).equals("True")||json.getString(key).equals("TRUE")){
+                if (json.getString(key).equals("True") || json.getString(key).equals("TRUE")) {
                     nameList.add(key);
-                    Log.i("ASDF","namelist: "+nameList.toString());
+                    Log.i("ASDF", "namelist: " + nameList.toString());
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            Log.i("ASDF","ERROR of process Json");
+            Log.i("ASDF", "ERROR of process Json");
         }
         return nameList;
+    }
+
+    public void testArrayList(){
+        if(testList.size()==0){
+            testList.add("LiYanzhang");
+            testList.add("TangXiaoyue");
+            testList.add("WangTianduo");
+            testList.add("visitor");
+            testList.add("visitor");
+            testList.add("visitor");
+            testList.add("visitor");
+            testList.add("visitor");
+            testList.add("visitor");
+        }
     }
 
 }

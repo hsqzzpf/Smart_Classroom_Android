@@ -113,7 +113,6 @@
             android:id="@+id/title_checked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/home_Line1"
             android:text="CHECKED:"
             android:textColor="@color/medium_blue"
             android:textSize="16sp"
@@ -127,7 +126,6 @@
             android:textStyle="bold"
             android:gravity="center"
             android:layout_toRightOf="@+id/title_checked"
-            android:layout_below="@id/home_Line1"
             android:layout_width="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_height="wrap_content" />
@@ -138,7 +136,9 @@
         android:layout_below="@id/group_checked_title"
         android:id="@+id/home_checked_student"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:overScrollMode="never">
 
     </android.support.v7.widget.RecyclerView>
 

@@ -13,7 +13,7 @@
         app:cardElevation="7dp"
         app:cardUseCompatPadding="false"
         android:layout_width="match_parent"
-        android:layout_height="154dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         cardBackgroundColor="#ffffff"
         >
@@ -92,19 +92,21 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/icon_sign" />
+
             <TextView
                 android:id="@+id/cardViewSignInStatus"
-                android:text="Signing In"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/medium_blue"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:paddingVertical="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/cardViewVenue"
                 android:layout_toRightOf="@+id/icon_signin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:paddingVertical="4dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="48 / 50"
+                android:textColor="@color/medium_blue"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>

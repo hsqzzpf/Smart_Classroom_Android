@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHolder>{
@@ -19,6 +23,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
     LayoutInflater mInflater;
     Context context;
     ClassDbHelper ClassDbHelper;
+    public ArrayList<String> uncheckedStudent = new ArrayList<>();
 
     private ClassAdapter.OnItemClickListener onItemClickListener;
     //Click Interface
@@ -52,10 +57,14 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
     public void onBindViewHolder(@NonNull final ClassViewHolder classViewHolder, int i) {
         ClassDbHelper.ClassData classData = ClassDbHelper.queryOneRow(i);
 
-        classViewHolder.textViewClassName.setText((classData.getName()+classData.getSession()));
-        classViewHolder.textViewTime.setText(classData.getDate()+classData.getTiming());
-        classViewHolder.textViewVenue.setText(classData.getVenue());
+        uncheckedStudent = processUncheckedStudent(classData.getStatus());
+        int checkedStudentNO = Integer.valueOf(classData.getNumber()) - uncheckedStudent.size();
 
+        classViewHolder.textViewClassName.setText((classData.getName() + " - "+ classData.getSession()));
+        classViewHolder.textViewTime.setText(classData.getDate() + " " + classData.getTiming());
+        classViewHolder.textViewVenue.setText(classData.getVenue());
+        classViewHolder.textViewSignInStatus.setText(String.valueOf(checkedStudentNO)+" / "+classData.getNumber());
+        Log.i("ASDF",classData.getStatus());
         classViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +100,25 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
             textViewSignInStatus = view.findViewById(R.id.cardViewSignInStatus);
         }
 
+    }
+
+    public ArrayList<String> processUncheckedStudent(String studentStatus){
+        ArrayList<String> uncheckedStudentList = new ArrayList<>();
+        try {
+            JSONObject json = new JSONObject(studentStatus);
+            Iterator iterator = json.keys();
+            while (iterator.hasNext()) {
+                String key = (String) iterator.next();
+                if (json.getString(key).equals("False")) {
+                    uncheckedStudentList.add(key);
+                    Log.i("ASDF", "namelist: " + uncheckedStudentList.toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i("ASDF", "ERROR of process Json");
+        }
+        return uncheckedStudentList;
     }
 
 }

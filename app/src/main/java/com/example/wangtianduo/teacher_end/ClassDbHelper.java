@@ -78,7 +78,6 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         ArrayList<ClassData> arrayList = new ArrayList<>();
         PACKAGE_NAME = context.getPackageName();
 
-        //open the Json file pictures stored in the res/raw folder
         InputStream inputStream = context.getResources().openRawResource(R.raw.courses);
         String string = Utils.convertStreamToString(inputStream);
 
@@ -94,8 +93,10 @@ public class ClassDbHelper extends SQLiteOpenHelper {
                 String date = jsonArray.getJSONObject(i).getString("date");
                 String timing = jsonArray.getJSONObject(i).getString("timing");
                 String venue = jsonArray.getJSONObject(i).getString("venue");
+                String studentNumber = jsonArray.getJSONObject(i).getString("studentNumber");
+                String studentStatus = jsonArray.getJSONObject(i).getString("studentStatus");
 
-                arrayList.add(new ClassDbHelper.ClassData(name, session, date, timing, venue));
+                arrayList.add(new ClassDbHelper.ClassData(name, session, date, timing, venue,studentNumber,studentStatus));
             }
         }catch(JSONException e){
             e.printStackTrace();
@@ -112,6 +113,8 @@ public class ClassDbHelper extends SQLiteOpenHelper {
             cv.put(ClassContract.ClassEntry.COL_DATE, arrayList.get(i).getDate());
             cv.put(ClassContract.ClassEntry.COL_TIMING, arrayList.get(i).getTiming());
             cv.put(ClassContract.ClassEntry.COL_VENUE, arrayList.get(i).getVenue());
+            cv.put(ClassContract.ClassEntry.COL_NUMBER, arrayList.get(i).getNumber());
+            cv.put(ClassContract.ClassEntry.COL_STATUS, arrayList.get(i).getStatus());
 
             sqLiteDatabase.insert(ClassContract.ClassEntry.TABLE_NAME,null,cv);
         }
@@ -157,6 +160,8 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         String date = null;
         String timing = null;
         String venue = null;
+        String number = null;
+        String status = null;
 
         cursor.moveToPosition(position);
         // extract the name column
@@ -175,7 +180,14 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         int venueIndex = cursor.getColumnIndex(ClassContract.ClassEntry.COL_VENUE);
         venue = cursor.getString(venueIndex);
 
-        return new ClassData(name, session, date, timing, venue);
+        int numberIndex = cursor.getColumnIndex(ClassContract.ClassEntry.COL_NUMBER);
+        number = cursor.getString(numberIndex);
+
+        int statusIndex = cursor.getColumnIndex(ClassContract.ClassEntry.COL_STATUS);
+        status = cursor.getString(statusIndex);
+
+
+        return new ClassData(name, session, date, timing, venue, number, status);
     }
 
     //TODO 7.10 Insert one row when data is passed to it
@@ -246,14 +258,18 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         private String date;
         private String timing;
         private String venue;
+        private String number;
+        private String status;
 
         public ClassData(String name, String session, String date,
-                         String timing, String venue) {
+                         String timing, String venue,String number, String status) {
             this.name = name;
             this.session = session;
             this.date = date;
             this.timing = timing;
             this.venue = venue;
+            this.number = number;
+            this.status = status;
         }
 
         public String getSession() { return session; }
@@ -267,6 +283,10 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         public String getDate() { return date; }
 
         public String getVenue() { return venue; }
+
+        public String getNumber() { return number;}
+
+        public String getStatus() {return status;}
     }
 
 }

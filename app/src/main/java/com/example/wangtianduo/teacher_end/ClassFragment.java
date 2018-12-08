@@ -12,9 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * Created by zhouwei on 17/4/23.
- */
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
 
 public class ClassFragment extends Fragment {
 
@@ -22,6 +24,7 @@ public class ClassFragment extends Fragment {
     RecyclerView recyclerView;
     ClassDbHelper classDbHelper;
     ClassAdapter classAdapter;
+
 
     static ClassFragment newInstance(String from){
         ClassFragment fragment = new ClassFragment();
@@ -64,4 +67,5 @@ public class ClassFragment extends Fragment {
 
         return view;
     }
+
 }

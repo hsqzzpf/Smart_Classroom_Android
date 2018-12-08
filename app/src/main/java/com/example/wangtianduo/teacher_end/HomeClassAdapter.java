@@ -3,8 +3,6 @@ package com.example.wangtianduo.teacher_end;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -20,16 +18,6 @@ public class HomeClassAdapter extends RecyclerView.Adapter<HomeClassAdapter.Home
     public static ArrayList<String> checkedStudentList;
     private ArrayList<String> studentList;
     private HashMap<String,Integer> nameListHashMap;
-
-    private ClassAdapter.OnItemClickListener onItemClickListener;
-    //Click Interface
-    public interface OnItemClickListener{
-        void onItemClick(View view, int position);
-    }
-    //Click Listener
-    public void setOnItemClickListener(ClassAdapter.OnItemClickListener listener){
-        this.onItemClickListener = listener;
-    }
 
 
     public HomeClassAdapter(Context context, ArrayList<String> list) {

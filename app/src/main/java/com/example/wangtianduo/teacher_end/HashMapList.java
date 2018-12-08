@@ -7,12 +7,16 @@ public class HashMapList {
 
     public static HashMap initHashMap(){
         if(nameListHashMap.size()==0){
-            nameListHashMap.put("LiYanzhang",R.drawable.liyanzhang);
-            nameListHashMap.put("WangTianduo",R.drawable.whitebbird);
+            nameListHashMap.put("WangTianduo",R.drawable.wangtianduo);
             nameListHashMap.put("TangXiaoyue",R.drawable.tangxiaoyue);
-            nameListHashMap.put("liyanzhang",R.drawable.liyanzhang);
-            nameListHashMap.put("whiteBbird",R.drawable.whitebbird);
+            nameListHashMap.put("LiYanzhang",R.drawable.liyanzhang);
             nameListHashMap.put("visitor",R.drawable.visitor);
+            nameListHashMap.put("student1",R.drawable.student1);
+            nameListHashMap.put("student2",R.drawable.student2);
+            nameListHashMap.put("student3",R.drawable.student3);
+            nameListHashMap.put("student4",R.drawable.student4);
+            nameListHashMap.put("student5",R.drawable.student5);
+            nameListHashMap.put("student6",R.drawable.student6);
         }
         return nameListHashMap;
     }

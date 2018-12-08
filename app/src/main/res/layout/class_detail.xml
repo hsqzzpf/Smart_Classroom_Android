@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_blue">
 
     <RelativeLayout
+        android:id="@+id/sub_RelaLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingHorizontal="12dp"
         android:paddingVertical="12dp">
 
@@ -61,42 +62,24 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/title_status"
-            android:text="Status"
+            android:id="@+id/title_SignInResult"
+            android:text="Class Attendance"
             android:layout_below="@id/sub_Time"
+            android:textColor="@color/light_grey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/sub_Status"
-            android:text="Signing In"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/orange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title_status"/>
 
         <TextView
-            android:id="@+id/sub_Attendance"
-            android:text="18/50"
+            android:id="@+id/sub_AttendanceNO"
+            android:text="42/50"
             android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="@color/orange"
-            android:layout_toRightOf="@id/sub_Status"
-            android:layout_below="@id/title_status"
-            android:layout_marginLeft="8dp"
+            android:layout_below="@id/title_SignInResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/sub_CountDown"
-            android:textSize="16sp"
-            android:textColor="@color/orange"
-            android:layout_below="@id/sub_Status"
-            android:text="00:15:22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
         <View
             android:id="@+id/sub_Line1"
@@ -104,19 +87,29 @@
             android:layout_marginTop="4dp"
             android:layout_height="1dp"
             android:background="@color/light_grey"
-            android:layout_below="@id/sub_CountDown"/>
+            android:layout_below="@id/sub_AttendanceNO"/>
 
         <TextView
             android:id="@+id/title_checked"
-            android:text="CHECKED"
-            android:textColor="@color/medium_blue"
+            android:text="UNCHECKED"
+            android:textColor="#555555"
             android:layout_below="@+id/sub_Line1"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-
     </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/sub_unchecked_student"
+        android:layout_below="@id/sub_RelaLayout"
+        android:paddingHorizontal="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

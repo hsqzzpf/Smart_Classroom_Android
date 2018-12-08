@@ -2,12 +2,20 @@ package com.example.wangtianduo.teacher_end;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -15,12 +23,43 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private Fragment[] mFragmensts;
 
+    private Timer timer = new Timer();
+    private Integer classDay=8,classHour=22,classMin=50,classSec=00;//目标课程时间
+    private Integer resHour,resMin,resSec;
+    private Integer year,month,day,hours,minute,second;
+    private TextView countDown;
+    private Integer remainSeconds,resSeconds,remainMinutes,resMinutes,remainHours,resHours;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bottom_tab_layout_ac);
         mFragmensts = DataGenerator.getFragments("TabLayout Tab");
+
+
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                getDateAndTime(null);
+                Log.i("ASDF","Time: "+String.valueOf(year)+" "+String.valueOf(month)+" "+String.valueOf(day)+" "+String.valueOf(hours)+" "+String.valueOf(minute)+" "+String.valueOf(second));
+                remainSeconds = calResTime(hours,minute,second);
+                resSeconds = remainSeconds%60;
+                remainMinutes = (remainSeconds - resSeconds)/60;
+                resMinutes = remainMinutes%60;
+                remainHours = (remainMinutes - resMinutes)/60;
+                resHours = remainHours;
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //setContentView(mTabLayout);
+                        countDown = (TextView)findViewById(R.id.home_CountDown);
+                        if(countDown!=null)
+                            countDown.setText(String.format("%02d",resHours)+":"+String.format("%02d",resMinutes)+":"+String.format("%02d",resSeconds));
+                    }
+                });
+            }
+        }, 0,1);
 
         initView();
     }
@@ -46,12 +85,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
 
@@ -83,4 +120,27 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.home_container, fragment).commit();
         }
     }
+
+    public void getDateAndTime(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        if (date == null) {
+            calendar.setTimeInMillis(System.currentTimeMillis());
+        } else {
+            calendar.setTime(date);
+        }
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        hours = calendar.get(Calendar.HOUR_OF_DAY);
+        minute = calendar.get(Calendar.MINUTE);
+        second = calendar.get(Calendar.SECOND);
+    }
+
+    public Integer calResTime(int hour,int minute,int second){
+        int targetTime = classSec + classMin*60 + classHour *60 *60;
+        int currentTime = second + minute*60 + hour*60*60;
+        int remainTime = targetTime - currentTime;
+        return remainTime;
+    }
+
 }

@@ -22,6 +22,9 @@ public class ClassContract {
         public static final String COL_DATE = "date";
         public static final String COL_TIMING = "timing";
         public static final String COL_VENUE = "venue";
+        public static final String COL_NUMBER = "studentNumber";
+        public static final String COL_STATUS = "studentStatus";
+
 //        public static final String COL_FILE = "file";
 
     }
@@ -38,7 +41,9 @@ public class ClassContract {
                 + ClassEntry.COL_SESSION + SPACE + "TEXT NOT NULL" + COMMA
                 + ClassEntry.COL_DATE + SPACE + "TEXT NOT NULL" + COMMA
                 + ClassEntry.COL_TIMING + SPACE + "TEXT NOT NULL" + COMMA
-                + ClassEntry.COL_VENUE + SPACE + "TEXT NOT NULL" +");";
+                + ClassEntry.COL_VENUE + SPACE + "TEXT NOT NULL" + COMMA
+                + ClassEntry.COL_NUMBER + SPACE + "TEXT NOT NULL" + COMMA
+                + ClassEntry.COL_STATUS + SPACE + "TEXT NOT NULL" + ");";
 
         public static String SQL_DROP_TABLE = "DROP TABLE IF EXISTS " + ClassEntry.TABLE_NAME;
 

@@ -1,32 +1,56 @@
 [
-  { "name": "50.001 Introduction to Information System and Programmming",
-    "session": " - CI01",
-    "date": "08/11/2018",
+  { "name": "50.001 Introduction to Information System and Programming",
+    "session": "CI01",
+    "date": "11/12/2018",
     "timing": "9:00",
-    "venue": "2.502, SUTD"},
-  { "name": "50.001",
-    "session": "2",
-    "date": "09/11/2018",
-    "timing": "1:00",
-    "venue": "2.507"},
-  { "name": "50.001",
-    "session": "3",
-    "date": "01/11/2018",
-    "timing": "2:00",
-    "venue": "2.509"},
-  { "name": "50.002",
-    "session": "1",
-    "date": "02/11/2018",
-    "timing": "3:00",
-    "venue": "2.501"},
-  { "name": "50.002",
-    "session": "2",
-    "date": "03/11/2018",
-    "timing": "4:00",
-    "venue": "2.506"},
-  { "name": "50.002",
-    "session": "3",
-    "date": "04/11/2018",
-    "timing": "5:00",
-    "venue": "2.506"}
+    "venue": "2.502, SUTD",
+    "studentNumber":"50",
+    "studentStatus":{
+      "LiYanzhang":"True","WangTianduo":"False","TangXiaoyue":"False","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","student1":"False","student2":"False","student3":"False","student4":"False","student5":"False","student6":"False"
+    }},
+  { "name": "50.001 Introduction to Information System and Programming",
+    "session": "CI02",
+    "date": "12/12/2018",
+    "timing": "11:00",
+    "venue": "2.507",
+    "studentNumber":"48",
+    "studentStatus":{
+      "LiYanzhang":"True","WangTianduo":"False","TangXiaoyue":"False","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","student1":"False","student2":"False","student3":"False","student4":"False","student5":"False","student6":"False"
+    }},
+  { "name": "50.001 Introduction to Information System and Programming",
+    "session": "CI03",
+    "date": "12/12/2018",
+    "timing": "14:00",
+    "venue": "2.509",
+    "studentNumber":"49",
+    "studentStatus":{
+      "LiYanzhang":"True","WangTianduo":"False","TangXiaoyue":"False","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","student1":"False","student2":"False","student3":"False","student4":"False","student5":"False","student6":"False"
+    }},
+  { "name": "50.002 Computational Structure",
+    "session": "CI01",
+    "date": "12/12/2018",
+    "timing": "10:00",
+    "venue": "2.501",
+    "studentNumber":"50",
+    "studentStatus":{
+      "LiYanzhang":"True","WangTianduo":"False","TangXiaoyue":"False","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","student1":"False","student2":"False","student3":"False","student4":"False","student5":"False","student6":"False"
+    }},
+  { "name": "50.002 Computational Structure",
+    "session": "CI02",
+    "date": "13/12/2018",
+    "timing": "12:00",
+    "venue": "2.506",
+    "studentNumber":"50",
+    "studentStatus":{
+      "LiYanzhang":"True","WangTianduo":"False","TangXiaoyue":"False","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","student1":"False","student2":"False","student3":"False","student4":"False","student5":"False","student6":"False"
+    }},
+  { "name": "50.002 Computational Structure",
+    "session": "CI03",
+    "date": "11/12/2018",
+    "timing": "15:00",
+    "venue": "2.506",
+    "studentNumber":"50",
+    "studentStatus":{
+      "LiYanzhang":"True","WangTianduo":"False","TangXiaoyue":"False","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","visitor":"True","student1":"False","student2":"False","student3":"False","student4":"False","student5":"False","student6":"False"
+    }}
 ]
