@@ -51,10 +51,8 @@ public class ClassDbHelper extends SQLiteOpenHelper {
     //TODO 7.5 Complete onCreate. You may make use of fillTable below
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        Log.i("ASSS", "Database OnCreate");
         sqLiteDatabase.execSQL(ClassContract.ClassSql.SQL_CREATE_TABLE);
         fillTable(sqLiteDatabase);
-        Log.i(TAG, "onCreate is activated");
     }
 
     //TODO 7.6 Complete onUpgrade
@@ -62,7 +60,6 @@ public class ClassDbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(ClassContract.ClassSql.SQL_DROP_TABLE);
         onCreate(sqLiteDatabase);
-        Log.i(TAG, "onUgrade is activated");
     }
 
     //TODO 7.5 --- written for you
@@ -75,10 +72,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         InputStream inputStream = context.getResources().openRawResource(R.raw.courses);
         String string = Utils.convertStreamToString(inputStream);
 
-        Log.i("ASSS", string);
-
         //parse the Json file and store data in the ArrayList using the ClassData class
-        Log.i("ASDF", "ssssdddddd");
         try{
             JSONArray jsonArray = new JSONArray(string);
             for(int i = 0; i <= jsonArray.length(); i++){
@@ -97,7 +91,6 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         //Each entry in the arrayList is stored as a ContentValues object
         //Then this ContentValues object is inserted to the sqLiteDatabase to create a new row
         for(int i = 0; i< arrayList.size(); i++){
-            Log.i("Norman","" + arrayList.get(i).getSession());
             ContentValues cv = new ContentValues();
 
             cv.put(ClassContract.ClassEntry.COL_NAME, arrayList.get(i).getName());
@@ -110,8 +103,6 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         }
 
         Cursor cursor = sqLiteDatabase.rawQuery(ClassContract.ClassSql.SQL_QUERY_ALL_ROWS, null);
-        Log.i("Norman","Table Filled. Rows = " + cursor.getCount());
-
 
     }
 
@@ -122,7 +113,6 @@ public class ClassDbHelper extends SQLiteOpenHelper {
             readableDb = getReadableDatabase();
         }
 
-        Log.i("ASDF", "RANDOM");
         Cursor cursor = readableDb.rawQuery(
                 ClassContract.ClassSql.SQL_QUERY_ONE_RANDOM_ROW, null);
         return getDataFromCursor(0, cursor);
@@ -196,7 +186,6 @@ public class ClassDbHelper extends SQLiteOpenHelper {
 
 
         long row = writeableDb.insert(ClassContract.ClassEntry.TABLE_NAME, null, contentValues);
-        Log.i("Logcat", "insertOneRow: row = " + row);
     }
 
 

@@ -12,6 +12,7 @@ public class EventBuilder extends WeekViewEvent {
     }
 
     static class Builder {
+        private int year;
         private int month;
         private int day_of_month;
         private int start_hour;
@@ -24,6 +25,11 @@ public class EventBuilder extends WeekViewEvent {
         private Calendar endTime;
 
         Builder(){}
+
+        public Builder set_year(int year) {
+            this.year = year;
+            return this;
+        }
 
         public Builder set_month(int month) {
             this.month = month;
@@ -70,7 +76,7 @@ public class EventBuilder extends WeekViewEvent {
             startTime.set(Calendar.DAY_OF_MONTH, this.day_of_month);
             startTime.set(Calendar.HOUR_OF_DAY, this.start_hour);
             startTime.set(Calendar.MINUTE, this.minute);
-            startTime.set(Calendar.YEAR, this.month);
+            startTime.set(Calendar.YEAR, this.year);
             this.endTime = (Calendar) startTime.clone();
             endTime.add(Calendar.HOUR, this.end_hour);
             endTime.set(Calendar.MONTH, this.month);

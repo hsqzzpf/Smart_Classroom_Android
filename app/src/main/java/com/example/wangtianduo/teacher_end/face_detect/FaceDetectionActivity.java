@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
@@ -38,6 +40,7 @@ import android.widget.Toast;
 import com.example.wangtianduo.teacher_end.MainActivity;
 import com.example.wangtianduo.teacher_end.R;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -81,6 +84,7 @@ public class FaceDetectionActivity extends AppCompatActivity {
     private HandlerThread mBackgroundThread;
 
     private String uploadResult;
+    private String user_id;
 
     CameraDevice.StateCallback stateCallback = new CameraDevice.StateCallback(){
         public void onOpened(@NonNull CameraDevice camera){
@@ -111,13 +115,14 @@ public class FaceDetectionActivity extends AppCompatActivity {
         btnCapture.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                String user_id = editText.getText().toString();
+                user_id = editText.getText().toString();
                 if (user_id.length() == 0) {
                     Toast.makeText(FaceDetectionActivity.this, "Please type in your name", Toast.LENGTH_SHORT).show();
                 }else {
                     Log.i("ASDF", "your name: " + user_id);
-                    AsynUpload asy = new AsynUpload();
-                    asy.execute(user_id);
+                    takePicture(user_id);
+//                    AsynUpload asy = new AsynUpload();
+//                    asy.execute(user_id);
                 }
                 return;
             }
@@ -127,12 +132,21 @@ public class FaceDetectionActivity extends AppCompatActivity {
 //        startActivity(intent);
 
     }
-    class AsynUpload extends AsyncTask<String, String, String> {
+    class AsynUpload extends AsyncTask<Bitmap, String, String> {
 
         @Override
-        protected String doInBackground(String... user_id) {
-            takePicture(user_id[0]);
-            return null;
+        protected String doInBackground(Bitmap... imgData) {
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            imgData[0].compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            String s = "";
+            try {
+                s = UploadFaceSet.upload(byteArray, user_id);
+            }catch (Exception e) {
+                e.printStackTrace();
+                Log.i("ASDF", "asynctask dead");
+            }
+            return s;
         }
 
         @Override
@@ -215,10 +229,13 @@ public class FaceDetectionActivity extends AppCompatActivity {
                     try{
 //                        outputStream = new FileOutputStream(file);
 //                        outputStream.write(bytes);
-                        String s = UploadFaceSet.upload(bytes, user_id);
+//                        String s = UploadFaceSet.upload(bytes, user_id);
 //
-                        Intent intent = new Intent(FaceDetectionActivity.this, MainActivity.class);
-                        startActivity(intent);
+//                        Intent intent = new Intent(FaceDetectionActivity.this, MainActivity.class);
+//                        startActivity(intent);
+                        Bitmap img = BitmapFactory.decodeByteArray(bytes,0, bytes.length);
+                        AsynUpload asy = new AsynUpload();
+                        asy.execute(img);
                     }catch (Exception e) {
                         Log.i("ASDF", e.toString());
                     }
