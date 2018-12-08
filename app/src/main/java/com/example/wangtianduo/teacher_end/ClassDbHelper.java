@@ -46,7 +46,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         this.context = context;
     }
 
-    static ClassDbHelper createClassDbHelper(Context context) {
+    public static ClassDbHelper createClassDbHelper(Context context) {
         // context object of a particular activity is passed to it
         // so we get the context object of the entire app below
         if (classDbHelper == null) {

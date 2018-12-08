@@ -67,7 +67,7 @@ public class UploadFaceSet {
 
         server_up.put("name", user_id);
 
-        add_map.put("outer_id", "workingSet");
+        add_map.put("outer_id", "tuesdayDemo");
         detect_map.put("return_landmark", "0");
         byteMap.put("image_file", buff);
         String str = "";
