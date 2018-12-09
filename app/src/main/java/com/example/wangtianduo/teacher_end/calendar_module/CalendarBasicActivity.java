@@ -1,10 +1,8 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.calendar_module;
 
 import com.alamkanak.weekview.WeekViewEvent;
-import com.example.wangtianduo.teacher_end.CalendarBaseActivity;
-import com.example.wangtianduo.teacher_end.EventBuilder;
+import com.example.wangtianduo.teacher_end.sqlite_module.ClassDbHelper;
 import com.example.wangtianduo.teacher_end.R;
-import com.example.wangtianduo.teacher_end.ClassDbHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.wangtianduo.teacher_end.HomeClassAdapter;
 import com.example.wangtianduo.teacher_end.R;
-import com.example.wangtianduo.teacher_end.UploadFaceSet;
+import com.example.wangtianduo.teacher_end.face_detection.UploadFaceSet;
 
 import org.json.JSONObject;
 
@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
     private GridLayoutManager mGridLayoutManager;
 
 
-    static HomeFragment newInstance(String from) {
+    public static HomeFragment newInstance(String from) {
         HomeFragment fragment = new HomeFragment();
         Bundle bundle = new Bundle();
         bundle.putString("from", from);

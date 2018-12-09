@@ -47,13 +47,11 @@ public class HomeClassAdapter extends RecyclerView.Adapter<HomeClassAdapter.Home
 
     }
 
-    //TODO 9.6 this method controls the number of cardviews in the recyclerview
     @Override
     public int getItemCount() {
         return checkedStudentList.size();
     }
 
-    //TODO 9.2 Complete the constructor to initialize the widgets
     class HomeViewHolder extends RecyclerView.ViewHolder{
 
         TextView checkedStudentName;
@@ -66,6 +64,7 @@ public class HomeClassAdapter extends RecyclerView.Adapter<HomeClassAdapter.Home
         }
 
     }
+
 
 }
 

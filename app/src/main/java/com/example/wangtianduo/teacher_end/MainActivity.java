@@ -1,19 +1,18 @@
 package com.example.wangtianduo.teacher_end;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.wangtianduo.teacher_end.fragment_module.DataGenerator;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -24,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
     private Fragment[] mFragmensts;
 
     private Timer timer = new Timer();
-    private Integer classDay=8,classHour=22,classMin=50,classSec=00;//目标课程时间
+    private Integer classDay=8,classHour=11,classMin=50,classSec=00;
     private Integer resHour,resMin,resSec;
     private Integer year,month,day,hours,minute,second;
-    private TextView countDown;
+    private TextView countDown,signInStatus;
     private Integer remainSeconds,resSeconds,remainMinutes,resMinutes,remainHours,resHours;
 
     @Override
@@ -54,8 +53,16 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         //setContentView(mTabLayout);
                         countDown = (TextView)findViewById(R.id.home_CountDown);
-                        if(countDown!=null)
-                            countDown.setText(String.format("%02d",resHours)+":"+String.format("%02d",resMinutes)+":"+String.format("%02d",resSeconds));
+                        signInStatus = (TextView)findViewById(R.id.home_Status);
+                        if(countDown!=null){
+                            if(remainSeconds==0){
+                                signInStatus.setText("Signed In");
+                                countDown.setText("00:00:00");
+                            }
+                            else {
+                                countDown.setText(String.format("%02d",resHours)+":"+String.format("%02d",resMinutes)+":"+String.format("%02d",resSeconds));
+                            }
+                        }
                     }
                 });
             }
@@ -142,5 +149,7 @@ public class MainActivity extends AppCompatActivity {
         int remainTime = targetTime - currentTime;
         return remainTime;
     }
+
+
 
 }

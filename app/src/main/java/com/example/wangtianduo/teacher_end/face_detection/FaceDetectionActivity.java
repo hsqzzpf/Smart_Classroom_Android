@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.face_detection;
 
 import android.Manifest;
 import android.content.Context;
@@ -35,6 +35,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.wangtianduo.teacher_end.MainActivity;
+import com.example.wangtianduo.teacher_end.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

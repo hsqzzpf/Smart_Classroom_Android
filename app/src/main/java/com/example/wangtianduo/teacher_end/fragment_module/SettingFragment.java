@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.fragment_module;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+
+import com.example.wangtianduo.teacher_end.face_detection.FaceDetectionActivity;
+import com.example.wangtianduo.teacher_end.R;
 
 /**
  * Created by zhouwei on 17/4/23.
@@ -39,9 +41,6 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.setting_page,null);
         Button add_face = (Button) view.findViewById(R.id.add_new);
-        Button adjust_course = (Button) view.findViewById(R.id.adjust_curriculum);
-
-        TextView textView = view.findViewById(R.id.returnValue);
 
         add_face.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,13 +52,6 @@ public class SettingFragment extends Fragment {
             }
         });
 
-        adjust_course.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CalendarBasicActivity.class);
-                startActivity(intent);
-            }
-        });
 
 
         return view;

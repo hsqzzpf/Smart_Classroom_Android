@@ -1,16 +1,15 @@
 package com.example.wangtianduo.teacher_end;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.wangtianduo.teacher_end.sqlite_module.ClassDbHelper;
 
 import org.json.JSONObject;
 
@@ -22,7 +21,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
 
     LayoutInflater mInflater;
     Context context;
-    ClassDbHelper ClassDbHelper;
+    com.example.wangtianduo.teacher_end.sqlite_module.ClassDbHelper ClassDbHelper;
     public ArrayList<String> uncheckedStudent = new ArrayList<>();
 
     private ClassAdapter.OnItemClickListener onItemClickListener;

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">teacher_end</string>
+    <string name="app_name">Smart Class</string>
     <string name="picture">Picture</string>
     <string name="description_info">Info</string>
     <string name="request_permission">This sample needs camera permission.</string>

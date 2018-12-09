@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.calendar_module;
 
 import com.alamkanak.weekview.WeekViewEvent;
 

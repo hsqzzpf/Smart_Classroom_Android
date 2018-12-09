@@ -1,27 +1,20 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.sqlite_module;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.Resources;
-import android.database.ContentObservable;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteQueryBuilder;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
+
+import com.example.wangtianduo.teacher_end.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by norman_lee on 6/10/17.
@@ -251,7 +244,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
 
 
     //TODO 7.3 Create a model class to represent our data
-    static class ClassData{
+    public static class ClassData{
 
         private String name;
         private String session;

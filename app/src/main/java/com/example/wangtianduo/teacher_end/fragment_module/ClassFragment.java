@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.wangtianduo.teacher_end.ClassAdapter;
-import com.example.wangtianduo.teacher_end.ClassDbHelper;
+import com.example.wangtianduo.teacher_end.sqlite_module.ClassDbHelper;
 import com.example.wangtianduo.teacher_end.R;
 import com.example.wangtianduo.teacher_end.TabCardviewActivity;
 

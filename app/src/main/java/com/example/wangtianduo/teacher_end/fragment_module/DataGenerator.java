@@ -1,10 +1,12 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.fragment_module;
 
 import android.support.v4.app.Fragment;
 
+import com.example.wangtianduo.teacher_end.R;
 import com.example.wangtianduo.teacher_end.fragment_module.ClassFragment;
 import com.example.wangtianduo.teacher_end.fragment_module.HomeFragment;
 import com.example.wangtianduo.teacher_end.fragment_module.ScheduleFragment;
+import com.example.wangtianduo.teacher_end.fragment_module.SettingFragment;
 
 public class DataGenerator {
 

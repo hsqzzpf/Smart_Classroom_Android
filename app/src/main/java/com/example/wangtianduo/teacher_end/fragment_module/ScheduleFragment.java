@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
-import com.example.wangtianduo.teacher_end.CalendarBasicActivity;
+import com.example.wangtianduo.teacher_end.calendar_module.CalendarBasicActivity;
 
 /**
  * Created by zhouwei on 17/4/23.

@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.wangtianduo.teacher_end.sqlite_module.ClassDbHelper;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ import java.util.Iterator;
 
 public class TabCardviewActivity extends AppCompatActivity {
 
-    ClassDbHelper ClassDbHelper;
+    com.example.wangtianduo.teacher_end.sqlite_module.ClassDbHelper ClassDbHelper;
     ClassDbHelper.ClassData classData;
     String position;
     Integer pos;
