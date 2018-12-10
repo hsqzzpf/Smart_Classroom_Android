@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 getDateAndTime(null);
-                Log.i("ASDF","Time: "+String.valueOf(year)+" "+String.valueOf(month)+" "+String.valueOf(day)+" "+String.valueOf(hours)+" "+String.valueOf(minute)+" "+String.valueOf(second));
                 remainSeconds = calResTime(hours,minute,second);
                 resSeconds = remainSeconds%60;
                 remainMinutes = (remainSeconds - resSeconds)/60;
@@ -79,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 onTabItemSelected(tab.getPosition());
 
-                //改变Tab 状态
                 for (int i = 0; i < mTabLayout.getTabCount(); i++) {
                     if (i == tab.getPosition()) {
                         mTabLayout.getTabAt(i).setIcon(getResources().getDrawable(DataGenerator.mTabResPressed[i]));

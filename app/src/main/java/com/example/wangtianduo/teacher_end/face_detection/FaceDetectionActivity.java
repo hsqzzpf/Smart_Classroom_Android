@@ -118,7 +118,6 @@ public class FaceDetectionActivity extends AppCompatActivity {
                 if (user_id.length() == 0) {
                     Toast.makeText(FaceDetectionActivity.this, "Please type in your name", Toast.LENGTH_SHORT).show();
                 }else {
-                    Log.i("ASDF", "your name: " + user_id);
                     takePicture(user_id);
 //                    AsynUpload asy = new AsynUpload();
 //                    asy.execute(user_id);
@@ -127,8 +126,6 @@ public class FaceDetectionActivity extends AppCompatActivity {
             }
         });
 
-//        Intent intent = new Intent(FaceDetection.this, MainActivity.class);
-//        startActivity(intent);
 
     }
     class AsynUpload extends AsyncTask<Bitmap, String, String> {
@@ -157,8 +154,6 @@ public class FaceDetectionActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-//            Intent intent = new Intent(FaceDetection.this, MainActivity.class);
-//            startActivity(intent);
 
         }
     }
@@ -235,7 +230,7 @@ public class FaceDetectionActivity extends AppCompatActivity {
 //                        AsynUpload asy = new AsynUpload();
 //                        asy.execute(img);
                     }catch (Exception e) {
-                        Log.i("ASDF", e.toString());
+                        e.printStackTrace();
                     }
                     finally {
                         if(outputStream != null)

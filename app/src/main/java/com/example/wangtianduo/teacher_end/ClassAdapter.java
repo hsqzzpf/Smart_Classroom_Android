@@ -35,15 +35,13 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
     }
 
 
-    //TODO 9.3 Constructor takes in a context object and a ClassDbHelper object
-    //TODO 9.3 assign the inputs to instance variables
     public ClassAdapter(Context context, ClassDbHelper ClassDbHelper) {
         mInflater = LayoutInflater.from(context);
         this.context = context;
         this.ClassDbHelper = ClassDbHelper;
     }
 
-    //TODO 9.4 onCreateViewHolder inflates each CardView layout (no coding)
+
     @NonNull
     @Override
     public ClassViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -51,7 +49,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
         return new ClassViewHolder(itemView);
     }
 
-    //TODO 9.5 onBindViewHolder binds the data to each card according to its position
+
     @Override
     public void onBindViewHolder(@NonNull final ClassViewHolder classViewHolder, int i) {
         ClassDbHelper.ClassData classData = ClassDbHelper.queryOneRow(i);
@@ -63,7 +61,6 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
         classViewHolder.textViewTime.setText(classData.getDate() + " " + classData.getTiming());
         classViewHolder.textViewVenue.setText(classData.getVenue());
         classViewHolder.textViewSignInStatus.setText(String.valueOf(checkedStudentNO)+" / "+classData.getNumber());
-        Log.i("ASDF",classData.getStatus());
         classViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,14 +72,14 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
         });
     }
 
-    //TODO 9.6 this method controls the number of cardviews in the recyclerview
+
     @Override
     public int getItemCount() {
 
         return (int) ClassDbHelper.queryNumRows();
     }
 
-    //TODO 9.2 Complete the constructor to initialize the widgets
+
     class ClassViewHolder extends RecyclerView.ViewHolder{
 
         public TextView textViewClassName;
@@ -115,7 +112,6 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.i("ASDF", "ERROR of process Json");
         }
         return uncheckedStudentList;
     }

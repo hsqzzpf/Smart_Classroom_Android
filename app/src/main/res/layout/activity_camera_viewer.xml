@@ -6,19 +6,27 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please type your name: "
+        android:height="50dp"/>
+
     <SurfaceView
         android:id="@+id/surfaceview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="@dimen/image_preview"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:scrollbars="vertical" />
+        android:layout_below="@+id/edit_name"/>
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recycler_view"-->
+        <!--android:layout_width="@dimen/image_preview"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:scrollbars="vertical" />-->
     <Button
         android:id="@+id/start"
         android:layout_width="match_parent"

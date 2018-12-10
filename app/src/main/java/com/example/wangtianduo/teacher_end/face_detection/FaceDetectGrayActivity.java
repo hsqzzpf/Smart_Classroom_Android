@@ -1,5 +1,6 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.face_detection;
 
+import com.example.wangtianduo.teacher_end.R;
 import com.example.wangtianduo.teacher_end.face_detection.UploadFaceSet;
 
 import android.app.AlertDialog;
@@ -25,18 +26,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import com.example.wangtianduo.teacher_end.FaceOverlayView;
-import com.example.wangtianduo.teacher_end.ImagePreviewAdapter;
-import com.example.wangtianduo.teacher_end.FaceResult;
-import com.example.wangtianduo.teacher_end.CameraErrorCallback;
-import com.example.wangtianduo.teacher_end.ImageUtils;
-import com.example.wangtianduo.teacher_end.Util;
+import com.example.wangtianduo.teacher_end.face_detection.FaceOverlayView;
+import com.example.wangtianduo.teacher_end.face_detection.ImagePreviewAdapter;
+import com.example.wangtianduo.teacher_end.face_detection.FaceResult;
+import com.example.wangtianduo.teacher_end.face_detection.CameraErrorCallback;
+import com.example.wangtianduo.teacher_end.face_detection.ImageUtils;
+import com.example.wangtianduo.teacher_end.face_detection.Util;
+import com.jpegkit.Jpeg;
 
 
 /**
@@ -96,12 +103,15 @@ public final class FaceDetectGrayActivity extends AppCompatActivity implements S
 
     //RecylerView face image
     private HashMap<Integer, Integer> facesCount = new HashMap<>();
-    private RecyclerView recyclerView;
+//    private RecyclerView recyclerView;
     private ImagePreviewAdapter imagePreviewAdapter;
     private ArrayList<Bitmap> facesBitmap;
 
     private int click = 0;
     private byte[] img = null;
+
+    private float confidence = 0;
+    private Bitmap bmp = null;
 
 
     //==============================================================================================
@@ -125,10 +135,10 @@ public final class FaceDetectGrayActivity extends AppCompatActivity implements S
         addContentView(mFaceView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         // Create and Start the OrientationListener:
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+//        recyclerView.setLayoutManager(mLayoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
 
         handler = new Handler();
@@ -149,11 +159,25 @@ public final class FaceDetectGrayActivity extends AppCompatActivity implements S
             cameraId = icicle.getInt(BUNDLE_CAMERA_ID, 0);
 
         Button start = findViewById(R.id.start);
+        final EditText editText = findViewById(R.id.edit_name);
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UploadFace uploadFace = new UploadFace(grayBuff);
-                uploadFace.start();
+                String user_id = editText.getText().toString();
+                if (user_id.length() == 0) {
+                    Log.i("ASDD",user_id);
+                    Toast.makeText(FaceDetectGrayActivity.this, "Please type in your name", Toast.LENGTH_SHORT).show();
+                }else if (confidence < 0.4) {
+                    Toast.makeText(FaceDetectGrayActivity.this, "No face detected!", Toast.LENGTH_SHORT).show();
+                }else {
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bmp.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                    UploadFace uploadFace = new UploadFace(baos.toByteArray(), user_id);
+                    uploadFace.start();
+                    Toast.makeText(FaceDetectGrayActivity.this, "Uploading...", Toast.LENGTH_LONG).show();
+                    Toast.makeText(FaceDetectGrayActivity.this, "Upload Success!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -459,7 +483,7 @@ public final class FaceDetectGrayActivity extends AppCompatActivity implements S
             gray8toRGB32(grayBuff, previewWidth, previewHeight, rgbs);
             Bitmap bitmap = Bitmap.createBitmap(rgbs, previewWidth, previewHeight, Bitmap.Config.RGB_565);
 
-            Bitmap bmp = Bitmap.createScaledBitmap(bitmap, w, h, false);
+            bmp = Bitmap.createScaledBitmap(bitmap, w, h, false);
 
             float xScale = (float) previewWidth / (float) prevSettingWidth;
             float yScale = (float) previewHeight / (float) h;
@@ -506,7 +530,7 @@ public final class FaceDetectGrayActivity extends AppCompatActivity implements S
                     mid.y *= yScale;
 
                     float eyesDis = fullResults[i].eyesDistance() * xScale;
-                    float confidence = fullResults[i].confidence();
+                    confidence = fullResults[i].confidence();
                     float pose = fullResults[i].pose(android.media.FaceDetector.Face.EULER_Y);
                     int idFace = Id;
 
@@ -611,14 +635,16 @@ public final class FaceDetectGrayActivity extends AppCompatActivity implements S
 
     private class UploadFace extends Thread {
         private byte[] data = null;
+        private String user_id;
+        public UploadFace(byte[] imgData, String user_id) {
 
-        public UploadFace(byte[] imgData) {
             this.data = imgData;
+            this.user_id = user_id;
         }
 
         public void run() {
             try {
-                UploadFaceSet.upload(data, "id");
+                UploadFaceSet.upload(data, user_id);
             }catch (Exception e) {
                 e.printStackTrace();
             }
@@ -639,7 +665,7 @@ public final class FaceDetectGrayActivity extends AppCompatActivity implements S
                     imagePreviewAdapter.notifyDataSetChanged();
                 }
             });
-            recyclerView.setAdapter(imagePreviewAdapter);
+//            recyclerView.setAdapter(imagePreviewAdapter);
         } else {
             imagePreviewAdapter.clearAll();
         }

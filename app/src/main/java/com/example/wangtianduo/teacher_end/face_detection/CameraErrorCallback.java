@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.face_detection;
 
 import android.hardware.Camera;
 import android.util.Log;

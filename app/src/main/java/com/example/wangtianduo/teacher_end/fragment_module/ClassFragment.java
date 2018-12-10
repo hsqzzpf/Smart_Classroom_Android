@@ -56,10 +56,9 @@ public class ClassFragment extends Fragment {
         classAdapter.setOnItemClickListener(new ClassAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Log.i("ASDF", "onitemclick");
+
                 Intent intent = new Intent(getContext(), TabCardviewActivity.class);
                 intent.putExtra("position", String.valueOf(position));
-                Log.i("ASDF", "intent put extra");
                 startActivity(intent);
             }
         });

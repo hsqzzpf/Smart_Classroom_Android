@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.face_detection;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -13,8 +13,6 @@ import android.net.Uri;
 import android.provider.MediaStore;
 
 import java.io.IOException;
-
-import com.example.wangtianduo.teacher_end.FaceResult;
 
 
 public class ImageUtils {

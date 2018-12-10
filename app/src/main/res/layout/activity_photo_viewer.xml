@@ -8,13 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="@dimen/image_preview"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:scrollbars="vertical" />
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recycler_view"-->
+        <!--android:layout_width="@dimen/image_preview"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:scrollbars="vertical" />-->
 
 </RelativeLayout>

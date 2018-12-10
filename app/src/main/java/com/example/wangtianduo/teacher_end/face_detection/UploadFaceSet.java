@@ -74,7 +74,7 @@ public class UploadFaceSet {
         try{
             byte[] bacd = detect(detect_url, detect_map, byteMap);
             str = new String(bacd);
-            Log.i("ASDF", str);
+            Log.i("ASS", str);
 
             JSONObject json = new JSONObject(str);
 
@@ -85,14 +85,14 @@ public class UploadFaceSet {
                 add_map.put("face_tokens", faceToken);
                 byte[] add_return = addFace(addface_url, add_map);
                 String returnV = new String(add_return);
-                Log.i("ASDF", "addface" + returnV);
+                Log.i("ASS", "addface" + returnV);
                 setid_map.put("face_token", faceToken);
                 setid_map.put("user_id", user_id);
                 byte[] setid_return = setid(setid_url, setid_map);
                 String setid_string = new String(setid_return);
-                Log.i("ASDF", "setid " + setid_string);
+                Log.i("ASS", "setid " + setid_string);
                 byte[] ss = addFace(server, server_up);
-                Log.i("ASDF", new String(ss));
+                Log.i("ASS", new String(ss));
             }
 
         }catch (Exception e) {

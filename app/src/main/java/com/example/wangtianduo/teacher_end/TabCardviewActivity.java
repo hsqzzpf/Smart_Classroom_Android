@@ -32,7 +32,7 @@ public class TabCardviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.class_detail);
-        Log.i("ASDF", "TabCardView");
+
         Intent intent = getIntent();
         if(intent!=null){
             position = intent.getStringExtra("position");
@@ -72,7 +72,6 @@ public class TabCardviewActivity extends AppCompatActivity {
         unCheckedStudentList.add("LiYanzhang");
         unCheckedStudentList.add("LiYanzhang");
         unCheckedStudentList.add("LiYanzhang");
-
     }
 
     public ArrayList<String> processUncheckedStudent(String studentStatus){
@@ -89,7 +88,6 @@ public class TabCardviewActivity extends AppCompatActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.i("ASDF", "ERROR of process Json");
         }
         return uncheckedStudentList;
     }

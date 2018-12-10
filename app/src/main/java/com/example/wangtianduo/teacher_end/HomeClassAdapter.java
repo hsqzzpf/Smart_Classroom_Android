@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class HomeClassAdapter extends RecyclerView.Adapter<HomeClassAdapter.HomeViewHolder>{
 
-    //LayoutInflater mInflater;
+
     private Context context;
     public static ArrayList<String> checkedStudentList;
     private ArrayList<String> studentList;

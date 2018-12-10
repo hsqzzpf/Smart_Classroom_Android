@@ -1,4 +1,4 @@
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.face_detection;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import com.example.wangtianduo.teacher_end.R;
 
 import java.util.ArrayList;
 

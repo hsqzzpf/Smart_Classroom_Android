@@ -15,8 +15,6 @@ public class CalendarBasicActivity extends CalendarBaseActivity {
         List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
         HashMap<String, Integer> class_color = new HashMap<>();
 
-        //TODO add key-value pair that specify classname and color
-
         ClassDbHelper classDbHelper = ClassDbHelper.createClassDbHelper(this);
         int length = (int) classDbHelper.queryNumRows();
 

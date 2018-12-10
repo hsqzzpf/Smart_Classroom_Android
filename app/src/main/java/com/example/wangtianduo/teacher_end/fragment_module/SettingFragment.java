@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.wangtianduo.teacher_end.FaceDetectGrayActivity;
+import com.example.wangtianduo.teacher_end.face_detection.FaceDetectGrayActivity;
 import com.example.wangtianduo.teacher_end.face_detection.FaceDetectionActivity;
 import com.example.wangtianduo.teacher_end.R;
 

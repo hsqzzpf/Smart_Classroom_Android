@@ -1,7 +1,7 @@
 // Copyright (c) Philipp Wagner. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-package com.example.wangtianduo.teacher_end;
+package com.example.wangtianduo.teacher_end.face_detection;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -15,7 +15,7 @@ import android.view.View;
 
 import java.text.DecimalFormat;
 
-import com.example.wangtianduo.teacher_end.FaceResult;
+import com.example.wangtianduo.teacher_end.face_detection.FaceResult;
 
 /**
  * Created by Nguyen on 5/20/2016.
@@ -118,16 +118,16 @@ public class FaceOverlayView extends View {
                         rectF.right = getWidth() - left;
                     }
                     canvas.drawRect(rectF, mPaint);
-                    canvas.drawText("ID " + face.getId(), rectF.left, rectF.bottom + mTextPaint.getTextSize(), mTextPaint);
+                    //canvas.drawText("ID " + face.getId(), rectF.left, rectF.bottom + mTextPaint.getTextSize(), mTextPaint);
                     canvas.drawText("Confidence " + face.getConfidence(), rectF.left, rectF.bottom + mTextPaint.getTextSize() * 2, mTextPaint);
-                    canvas.drawText("EyesDistance " + face.eyesDistance(), rectF.left, rectF.bottom + mTextPaint.getTextSize() * 3, mTextPaint);
+                   // canvas.drawText("EyesDistance " + face.eyesDistance(), rectF.left, rectF.bottom + mTextPaint.getTextSize() * 3, mTextPaint);
                 }
             }
             canvas.restore();
         }
 
-        DecimalFormat df2 = new DecimalFormat(".##");
-        canvas.drawText("Detected_Frame/s: " + df2.format(fps) + " @ " + previewWidth + "x" + previewHeight, mTextPaint.getTextSize(), mTextPaint.getTextSize(), mTextPaint);
+//        DecimalFormat df2 = new DecimalFormat(".##");
+//        canvas.drawText("Detected_Frame/s: " + df2.format(fps) + " @ " + previewWidth + "x" + previewHeight, mTextPaint.getTextSize(), mTextPaint.getTextSize(), mTextPaint);
     }
 
     public void setPreviewWidth(int previewWidth) {

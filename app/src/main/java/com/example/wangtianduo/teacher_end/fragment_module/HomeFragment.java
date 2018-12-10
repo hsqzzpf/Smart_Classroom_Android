@@ -68,10 +68,8 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment_layout, null);
 
         try {
-            Log.i("ASDF", "in home, before upload class");
             AsynUpload asyn = new AsynUpload();
             asyn.execute();
-            //String a = UploadFaceSet.upload(null,"111");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,8 +87,6 @@ public class HomeFragment extends Fragment {
         mHomeClassAdapter = new HomeClassAdapter(getContext(), checkedStudentList);
         mHomeCheckedStudent.setLayoutManager(mGridLayoutManager);
         mHomeCheckedStudent.setAdapter(mHomeClassAdapter);
-        //mHomeCheckedStudent.setLayoutManager(new LinearLayoutManager(getContext()));
-        //homeCheckedNumber.setText(checkedStudentList.size());
 
         return view;
     }
@@ -113,15 +109,11 @@ public class HomeFragment extends Fragment {
         @Override
         protected void onProgressUpdate(String... values) {
             super.onProgressUpdate(values);
-            Log.i("ASDD", values[0]);
         }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-//            Intent intent = new Intent(FaceDetection.this, MainActivity.class);
-//            startActivity(intent);
-            Log.i("ASDF", "onPostExecute: " + s);
         }
     }
 
@@ -134,12 +126,10 @@ public class HomeFragment extends Fragment {
                 String key = (String) iterator.next();
                 if (json.getString(key).equals("True") || json.getString(key).equals("TRUE")) {
                     nameList.add(key);
-                    Log.i("ASDF", "namelist: " + nameList.toString());
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.i("ASDF", "ERROR of process Json");
         }
         return nameList;
     }

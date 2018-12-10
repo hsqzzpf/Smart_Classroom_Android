@@ -32,7 +32,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
     private static ClassDbHelper classDbHelper;
     private static String TAG = "ss";
 
-    //TODO 7.4 Create the Constructor and make it a singleton
+
     // Singleton Pattern
     private ClassDbHelper(Context context){
         super(context, ClassContract.ClassEntry.TABLE_NAME, null, DATABASE_VERSION );
@@ -48,7 +48,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         return classDbHelper;
     }
 
-    //TODO 7.5 Complete onCreate. You may make use of fillTable below
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         Log.i("ASSS", "Database OnCreate");
@@ -57,7 +57,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         Log.i(TAG, "onCreate is activated");
     }
 
-    //TODO 7.6 Complete onUpgrade
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(ClassContract.ClassSql.SQL_DROP_TABLE);
@@ -65,7 +65,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         Log.i(TAG, "onUgrade is activated");
     }
 
-    //TODO 7.5 --- written for you
+
     private void fillTable(SQLiteDatabase sqLiteDatabase){
 
         ArrayList<ClassData> arrayList = new ArrayList<>();
@@ -118,7 +118,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
 
     }
 
-    //TODO 7.8 query one row at random
+
     public ClassData queryOneRowRandom(){
 
         if (readableDb == null) {
@@ -132,7 +132,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
 
     }
 
-    //TODO 7.9 queryOneRow gets the entire database and returns the row in position as a ClassData object
+
     public ClassData queryOneRow(int position){
 
         if (readableDb == null) {
@@ -145,7 +145,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
 
     }
 
-    //TODO 7.8 Get the data from cursor
+
     private ClassData getDataFromCursor(int position, Cursor cursor){
 
         String name = null;
@@ -183,7 +183,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         return new ClassData(name, session, date, timing, venue, number, status);
     }
 
-    //TODO 7.10 Insert one row when data is passed to it
+
     public void insertOneRow(ClassData ClassData){
         if (writeableDb == null) {
             writeableDb = getWritableDatabase();
@@ -212,7 +212,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
     }
 
 
-    //TODO 7.11 Delete one row given the name field
+
     public int deleteOneRow(String name){
         if (writeableDb == null) {
             writeableDb = getWritableDatabase();
@@ -229,7 +229,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
         return rowsDeleted;
     }
 
-    //TODO 7.7 return the number of rows in the database
+
     public long queryNumRows(){
 
         if (readableDb == null) {
@@ -243,7 +243,7 @@ public class ClassDbHelper extends SQLiteOpenHelper {
     }
 
 
-    //TODO 7.3 Create a model class to represent our data
+
     public static class ClassData{
 
         private String name;

@@ -8,10 +8,6 @@ import android.provider.BaseColumns;
 
 public class ClassContract {
 
-    //TODO 7.1 Examine the static inner classes. No coding is needed
-
-    //TODO 7.2 Prevent Instantiation of this Contract class
-
     private ClassContract() { }
 
     public static final class ClassEntry implements BaseColumns {
