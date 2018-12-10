@@ -11,7 +11,21 @@
         android:layout_height="100dp"
         android:gravity="center_vertical"
         android:background="@drawable/btn_circle"
-        android:text="add_face"
+        android:text="OPEN CAMERA"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        />
+
+    <Button
+        android:id="@+id/add_new_2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/add_new"
+        android:background="@drawable/btn_circle"
+        android:text="ADD FACE"
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:textAlignment="center"

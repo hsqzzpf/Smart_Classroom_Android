@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                         countDown = (TextView)findViewById(R.id.home_CountDown);
                         signInStatus = (TextView)findViewById(R.id.home_Status);
                         if(countDown!=null){
-                            if(remainSeconds==0){
-                                signInStatus.setText("Signed In");
+                            if(remainSeconds==0||remainSeconds<0){
+                                signInStatus.setText("Stop Taking Attendance");
                                 countDown.setText("00:00:00");
                             }
                             else {

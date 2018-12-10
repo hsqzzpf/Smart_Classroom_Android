@@ -24,8 +24,8 @@ import javax.net.ssl.SSLException;
 
 public class UploadFaceSet {
 
-    final static String apiKey = "T7080cfMH824XsoWzR0v4QPc288iTWBu";
-    final static String apiSecret = "iWLN8jiciOCMWidOKfzIufBW11I4fjl0";
+    final static String apiKey = "lLmuNCeU8XzoRm3O1yBJ6qpwjhLFunFm";
+    final static String apiSecret = "UJ0NDCcZeOmWgkZuuFaK3HGITOEW1s_v";
     
      public static String getCheckedStudent() throws Exception{
             HashMap<String, String> classInfo = new HashMap<>();

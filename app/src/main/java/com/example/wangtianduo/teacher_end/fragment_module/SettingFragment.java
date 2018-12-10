@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.wangtianduo.teacher_end.FaceDetectGrayActivity;
 import com.example.wangtianduo.teacher_end.face_detection.FaceDetectionActivity;
 import com.example.wangtianduo.teacher_end.R;
 
@@ -41,6 +42,7 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.setting_page,null);
         Button add_face = (Button) view.findViewById(R.id.add_new);
+        Button add_face_2 = (Button)view.findViewById(R.id.add_new_2);
 
         add_face.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +54,13 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        add_face_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),FaceDetectGrayActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         return view;
