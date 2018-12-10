@@ -10,6 +10,8 @@ public class HashMapList {
             nameListHashMap.put("WangTianduo",R.drawable.wangtianduo);
             nameListHashMap.put("TangXiaoyue",R.drawable.tangxiaoyue);
             nameListHashMap.put("LiYanzhang",R.drawable.liyanzhang);
+            nameListHashMap.put("LuoYifan",R.drawable.luoyifan);
+            nameListHashMap.put("ZhuBo",R.drawable.zhubo);
             nameListHashMap.put("visitor",R.drawable.visitor);
             nameListHashMap.put("student1",R.drawable.student1);
             nameListHashMap.put("student2",R.drawable.student2);
